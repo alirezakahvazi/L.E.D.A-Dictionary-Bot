@@ -119,13 +119,7 @@ client.on('message',
             var channelid = msg.channelId
             bool = true
             var channel = client.channels.cache.get(channelid)
-            const exampleEmbed = new MessageEmbed()
-	        .setAuthor({ name: msg.author.username, iconURL: msg.author.displayAvatarURL()})
-            .addFields(
-                { name: "تصحیح توسط بات بر اساس لغت نامه:", value: msg.content.replace("تمام","تامام")}
-            )
-
-            channel.send({ embeds: [exampleEmbed] });
+            msgc = msgc.replace("تمام","تامام")
             
         }
         if(msg.content.includes("جالب") && !msg.author.bot){
@@ -175,6 +169,18 @@ client.on('message',
             bool = true
             var channel = client.channels.cache.get(channelid)
             msgc = msgc.replace("جناب","ژناب")
+        }
+	if(msg.content.includes("مطالب") && !msg.author.bot){
+            var channelid = msg.channelId
+            bool = true
+            var channel = client.channels.cache.get(channelid)
+            msgc = msgc.replace("مطالب","متالب")
+        }
+	if(msg.content.includes("طنز") && !msg.author.bot){
+            var channelid = msg.channelId
+            bool = true
+            var channel = client.channels.cache.get(channelid)
+            msgc = msgc.replace("طنز","تنز")
         }
         if(bool === true) {
             embedMS()
